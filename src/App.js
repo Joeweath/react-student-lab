@@ -1,8 +1,9 @@
 import "./App.css";
 import Student from "./Student";
+import { useState } from "react";
 
 function App() {
-  const students = [
+  const studentData = [
     {
       name: "Cait Yomorta",
       bio: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus placeat nostrum explicabo? Voluptatibus expedita saepe officia optio, commodi totam ratione laudantium ipsum porro molestias, quasi nulla minus vitae laboriosam corrupti Delectus inventore explicabo est odit incidunt rem a recusandae eum pariatur. Aperiam doloremque blanditiis harum voluptate animi fugit beatae asperiores quo, dignissimos sed illum veniam eum accusantium nulla quod voluptatum",
@@ -62,9 +63,14 @@ function App() {
       ],
     },
   ];
+
+  const [students, setStudents] = useState(studentData);
+
   return (
     <div>
-      <Student />
+      {students.map((student, idx) => (
+        <Student key={idx} student={student} test="Hey there buddy" />
+      ))}
     </div>
   );
 }
